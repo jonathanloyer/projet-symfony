@@ -1,0 +1,21 @@
+{% extends 'pages/layout.html.twig' %}
+
+{% block title %}Profil de {{ app.user.pseudo }}{% endblock %}
+
+{% block body %}
+<div class="container mx-auto mt-10 p-6 bg-white shadow-lg rounded-lg">
+    <h1 class="text-2xl font-semibold mb-6">Profil de {{ app.user.pseudo }}</h1>
+
+    <div class="flex items-center mb-4">
+        <p class="text-lg font-medium">Email :</p>
+        <span class="ml-2">{{ app.user.email }}</span>
+    </div>
+
+    <div class="flex items-center mb-4">
+        <p class="text-lg font-medium">Pseudo :</p>
+        <span class="ml-2">{{ app.user.pseudo }}</span>
+    </div>
+
+    
+</div>
+{% endblock %}
