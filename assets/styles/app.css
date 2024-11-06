@@ -2,8 +2,52 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+/* body {
     background-color: skyblue;
+} */
+
+
+* {
+    font-family: "roboto",serif;
+}
+.navbar {
+    background-color: rgb(9, 95, 233);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
 }
 
-.active{color:red;};
+#navbar-menu {
+    display: flex;
+    padding-right: 10px;
+    gap: 10px;
+    color: white;
+    transition: all 0.2s ease-in-out;
+}
+#navbar-menu-button {
+    display: none;
+}
+
+@media(max-width: 750px) {
+    #navbar-menu-button {
+        display: flex;
+    }
+    #navbar-menu {
+        flex-direction: column;
+        position: absolute;
+        left: 0;
+        top: 45px;
+        background-color: rgb(9, 95, 233);
+        min-width: 50vw;
+        min-height: 50vh;
+        padding: 10px;
+    }
+}
+
+/* body{
+    background-image:url("../img/3.JPG");
+    height: 1024px;
+} */
+
