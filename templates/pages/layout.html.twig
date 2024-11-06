@@ -13,6 +13,10 @@
 
 		{% endblock %}
 
+		{% block javascripts %}
+            {% block importmap %}{{ importmap('app') }}{% endblock %}
+        {% endblock %}
+
 	</head>
 	<body data-turbo="false">
 		{% include "components/navbar.html.twig" %}

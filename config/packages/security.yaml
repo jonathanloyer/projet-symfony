@@ -26,7 +26,7 @@ security:
                 password_parameter: password
 
         # L'url de redirection aprés une authentification réussie
-                default_target_path: /profil
+                default_target_path: /profile
             logout:
                 path: app_deconnexion
                 target: app_login

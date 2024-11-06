@@ -1,21 +1,37 @@
 {% extends 'pages/layout.html.twig' %}
 
-{% block title %}Profil de {{ app.user.pseudo }}{% endblock %}
+{% block title %}Profile de {{ app.user.pseudo }}{% endblock %}
 
 {% block body %}
-<div class="container mx-auto mt-10 p-6 bg-white shadow-lg rounded-lg">
-    <h1 class="text-2xl font-semibold mb-6">Profil de {{ app.user.pseudo }}</h1>
+    <div class="profile-container max-w-4xl mx-auto mt-10 p-6 bg-white shadow-lg rounded-lg">
+        <!-- Avatar avec l'icône pour modifier le profil -->
+        <div class="flex items-center justify-center relative">
+            <img src="{{ user.avatar ? asset('uploads/avatars/' ~ user.avatar) : asset('images/default-avatar.png') }}" alt="Avatar" class="avatar-img w-32 h-32 rounded-full border-4 border-gray-300">
+            
+            <!-- Icône pour modifier -->
+            <a href="{{ path('app_modifier_informations') }}" class="absolute bottom-0 right-0 bg-blue-500 p-2 rounded-full text-white hover:bg-blue-600 focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 3l9 9-9 9M21 12H7"></path>
+                </svg>
+            </a>
+        </div>
+        
+        <div class="text-center mt-6">
+            <h2 class="text-3xl font-semibold text-gray-800">{{ user.pseudo }}</h2>
+            <p class="text-gray-600 mt-2">{{ user.description ?: '' }}</p>
+            <p class="text-gray-600 mt-2"><strong>Email:</strong> {{ user.email }}</p>
 
-    <div class="flex items-center mb-4">
-        <p class="text-lg font-medium">Email :</p>
-        <span class="ml-2">{{ app.user.email }}</span>
+            {% if user.emploi %}
+                <p class="text-gray-600 mt-2"><strong>Emploi:</strong> {{ user.emploi }}</p>
+            {% endif %}
+
+            {% if user.telephone %}
+                <p class="text-gray-600 mt-2"><strong>Téléphone:</strong> {{ user.phone }}</p>
+            {% endif %}
+
+            {% if user.siteUrl %}
+                <p class="text-gray-600 mt-2"><strong>Site:</strong> <a href="{{ user.website }}" target="_blank" class="text-blue-500 hover:underline">{{ user.website }}</a></p>
+            {% endif %}
+        </div>
     </div>
-
-    <div class="flex items-center mb-4">
-        <p class="text-lg font-medium">Pseudo :</p>
-        <span class="ml-2">{{ app.user.pseudo }}</span>
-    </div>
-
-    
-</div>
 {% endblock %}
